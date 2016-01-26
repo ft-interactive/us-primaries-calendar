@@ -1,0 +1,10 @@
+<div class="card">
+	{{#if picurl}}<div class="img-holder"><img src="https://ig.ft.com/static/profiles/meet-the-fed/images/content/{{picurl}}" class="card__img" /></div>	{{/if}}
+	<div class="card__body">
+      {{#if year}}<p class="year">{{year}}</p>{{/if}}
+			<h3 class="card__title name">{{name}}</h3> 
+			<p class="job">{{description}}</p>
+			<p class="standfirst">{{linebreaks headline}}</p>
+	</div>
+	{{#if linkurl}}<a class="story-promo" href="{{linkurl}}"><span class="link">Full profile</span></a>{{/if}}
+</div>
