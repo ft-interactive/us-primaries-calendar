@@ -1,9 +1,9 @@
 import oHoverable from 'o-hoverable';
 import attachFastClick from 'fastclick';
 import mainTemplate from '../templates/main.hbs';
-import peopleTemplate from '../templates/people.hbs';
-import person_item from '../templates/_person_item.hbs';
-import person_group from '../templates/_person_group.hbs';
+import dateTemplate from '../templates/dates.hbs';
+import state_item from '../templates/_state_item.hbs';
+import date_group from '../templates/_date_group.hbs';
 import hb_helper from'./handlebars-helpers.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,41 +14,43 @@ document.addEventListener('DOMContentLoaded', () => {
   attachFastClick(document.body);
 
   // YOUR CODE HERE!
-  var groupNames = [];
-  var groups = [];
+  var dateNames = [];
+  var dates = [];
   var dataset = spreadsheet.data;
-  var groupTitles = spreadsheet.groups;
+  var dateTitles = spreadsheet.dates;
   var credits = spreadsheet.credits;
 
-  // put the dataset into groups and add the corresponding indicators
-  groupTitles.forEach(function (row) {
-    groupNames.push(row.name);
-    groups.push({
-      type: row.name,
-      person: []
+  // put the dataset into dates and add the corresponding indicators
+  dateTitles.forEach(function (row) {
+    dateNames.push(row.name);
+    dates.push({
+      date: row.name,
+      state: []
     });
   });
 
   dataset.forEach(function (row) {
-    var groupIndex = groupNames.indexOf(row.type);
-    groups[groupIndex].person.push(row);
+    var dateIndex = dateNames.indexOf(row.date);
+    dates[dateIndex].state.push(row);
   });
+
+  console.log(dates);
 
   document.querySelector('main').innerHTML = mainTemplate(spreadsheet);
 
-  var peopleHTML = peopleTemplate(groups, {
+  var peopleHTML = dateTemplate(dates, {
     partials: {
-      person_item,
-      person_group
+      state_item,
+      date_group
     }
   });
 
   document.querySelector('.content').innerHTML = peopleHTML;
 
-  // add headers to each group based on group sheets
-  groupTitles.forEach(function (row, indx) {
-    document.querySelector('.' + groupTitles[indx].name + ' .group-heading').innerHTML = groupTitles[indx].value;
-  });
+  // add headers to each date based on date sheets
+  // dateTitles.forEach(function (row, indx) {
+  //   document.querySelector('.' + dateTitles[indx].name + ' .date-heading').innerHTML = dateTitles[indx].value;
+  // });
 
   document.querySelector('.byline').innerHTML = writeCredits(credits);
 });

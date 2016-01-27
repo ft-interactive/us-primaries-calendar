@@ -1,8 +1,8 @@
 <div id="people">
     {{#each .}}
-        <div id="{{type}}" class="people-group {{type}}">
+        <div id="{{formatdateclass date}}" class="date-group {{formatdateclass date}}">
           <div class="group-heading">Group heading here</div>
-            {{> person_group .}}
+            {{> date_group .}}
         </div>
     {{/each}}
 </div>

@@ -8,6 +8,18 @@ Handlebars.registerHelper('upperCase', function (content) {
   return content.toUpperCase();
 });
 
+Handlebars.registerHelper('formatdateclass', function (date) {
+    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    var newDate = date.split("/");
+    var d = parseInt(newDate[0], 10),
+        m = parseInt(newDate[1] - 1, 10)
+
+    var month = monthNames[m],
+        day = d;
+
+  return month + day;
+});
+
 Handlebars.registerHelper('href', function (text) {
   if (!text) {
     return '';
