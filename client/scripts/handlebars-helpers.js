@@ -1,4 +1,5 @@
 var Handlebars = require('hbsfy/runtime');
+var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 Handlebars.registerHelper('join', function (array, separator) {
   return array.join(separator);
@@ -9,8 +10,8 @@ Handlebars.registerHelper('upperCase', function (content) {
 });
 
 Handlebars.registerHelper('formatdateclass', function (date) {
-    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-    var newDate = date.split("/");
+
+    var newDate = date.split('/');
     var d = parseInt(newDate[0], 10),
         m = parseInt(newDate[1] - 1, 10)
 
@@ -18,6 +19,17 @@ Handlebars.registerHelper('formatdateclass', function (date) {
         day = d;
 
   return month + day;
+});
+
+Handlebars.registerHelper('formatdatedisplay', function (date) {
+    var newDate = date.split('/');
+    var d = parseInt(newDate[0], 10),
+        m = parseInt(newDate[1] - 1, 10)
+
+    var month = monthNames[m],
+        day = d;
+
+  return month + ' ' + day;
 });
 
 Handlebars.registerHelper('href', function (text) {

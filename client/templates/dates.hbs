@@ -1,7 +1,7 @@
-<div id="people">
+<div class="dates">
     {{#each .}}
         <div id="{{formatdateclass date}}" class="date-group {{formatdateclass date}}">
-          <div class="group-heading">Group heading here</div>
+          <div class="date-heading">{{formatdatedisplay date}}</div>
             {{> date_group .}}
         </div>
     {{/each}}

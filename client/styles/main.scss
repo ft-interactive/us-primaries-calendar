@@ -6,6 +6,9 @@ $o-grid-is-silent:  false;
 
 @import 'fonts';
 
+$o-grid-gutters: (default: 10px);
+$rep: #b3244b;
+$dem: #273c8f;
 
 body {
   @include oColorsFor(page, background);
@@ -37,16 +40,6 @@ main {
     height: 18px;
   }
 
-.winner .year,
-.runnerup .year {
-  display: none;
-}
-
-.winner .job {
-  font-size: 1.25em;
-  line-height: 30px;
-}
-
 // Line Copy 3: */
 // border: 2px solid #C0B6A9;
 // Line Copy 4: */
@@ -56,73 +49,6 @@ main {
 
 // White Rectangle: */
 
-.main-image {
-  text-align: center;
-  margin: 0 0 -4px;
-
-  > img {
-    max-width: 800px;
-    width: 100%;
-  }
-}
-
-.people-group {
-  background: #fffbf7;
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.15);
-  margin-bottom: 1.5em;
-  padding-top: 1.5em;
-  border-radius: 0 0 4px 4px;
-
-  &.winner {
-    margin-bottom: 0;
-    border-radius: 0;
-  }
-}
-
-
-.group-heading {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-
-  &:after {
-    display: block;
-    margin: 0 auto;
-    width: 60px;
-    border: 1px solid #979797;
-    content: '';
-    margin-top: 0.75em;
-  }
-}
-
-.card {
-  // display: block;
-  padding: 1.25em 1em;
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-  border-bottom: 1px solid #e9decf;
-}
-
- // p {
- //    margin: 4px 0;
- //  }
-
-.img-holder {
-  float: left;
-  border-radius: 4px;
-
-  > img {
-    width: 57px;
-    height: 57px;
-    vertical-align: bottom; 
-  }
-}
-
-// Person of  the Year: */
 .headline {
   font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
   font-size: 2.5em;
@@ -152,54 +78,108 @@ main {
   text-decoration: none;
   color: #2e6e9e;
 }
-// 2015: THE WINNER: */
-.winner_section_title {
-  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-  font-size: 14px;
-  color: #333333;
-  letter-spacing: 0.1em;
-  line-height: 14px;
+
+.dates {
+  @include oGridColspan((default: 12, M: 10, L: 8));
+  @include oGridCenter;
 }
 
-.winner .card__body {
-  margin-left: 10px;
+.map {
+  @include oGridColspan((default: 3, S: 2, M: 2, L: 2));
 }
-// Line: */
-//border: 2px solid #979797;
 
+.stateinfo {
+  @include oGridColspan((default: 5, S: 7, M: 8, L: 8));
+}
 
-
-
-// Angela Merkel: */
-.name {
-  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+.delegates__dem,
+.delegates__rep {
+  @include oGridColspan((default: 2, S: 1, M: 1, L: 1));
   font-size: 20px;
-  color: #333333;
-  line-height: 26px;
-  margin: 0;
-  font-weight: 500;
+  font-weight: 200;
 }
 
-.img-holder {
-  margin-right: 1em;
+.date-group {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 10px;
+  border-radius: 0 0 4px 4px;
+  border-top: 1px solid oColorsGetPaletteColor('pink-tint4');
+}
+
+
+.date-heading {
+  width: 50px;
   overflow: hidden;
+  float: left;
+  font-size: 12px;
 }
 
-.runnerup .card__body,
-.previous .card__body {
+.card {
+  // display: block;
+  position: relative;
   overflow: hidden;
-
+  box-sizing: border-box;
+  border-bottom: 1px solid #e9decf;
+  margin-left: 40px;
+  padding: 5px 0;
 }
 
-.job {
+.card__body {
+  display: relative;
+  width: 100%;
+}
+
+.longstate {
+  display: none;
+}
+
+
+.longstate,
+.shortstate {
   font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
   font-weight: 500;
-  color: #a7a59b;
-  font-size: 16px;
+  color: oColorsGetPaletteColor('grey-tint5');
+  font-size: 18px;
   margin: 4px 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.shortstate {
+  font-size: 14px;
+}
+
+.map img {
+  width: 100%;
+  max-width: 70px;
+}
+
+.stateinfo {
+  // padding-left: 10px;
+}
+
+.blurb {
+  display: none;
+}
+
+.delegates__rep {
+  color: $rep;
+}
+
+.delegates__dem {
+  color: $dem;
+}
+
+
+.stateinfo h3 {
+  margin: 0 0 4px;
+}
+
+.img-holder {
+  // overflow: hidden;
+}
+
 // Blurb: */
 .standfirst {
   font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
@@ -213,57 +193,7 @@ main {
 
 
 
-// PREVIOUS WINNERS
-// SECTION TITLE: */
-.section_title {
-  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-  font-size: 16px;
-  color: #505050;
-}
-// PREVIOUS WINNER NAME: */
-.previous_name {
-  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-  font-size: 16px;
-  color: #333333;
-  line-height: 16px;
-}
 
-// YEAR: */
-.year {
-  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-  font-size: 14px;
-  color: #9b164f;
-  margin-top: -3px;
-  letter-spacing: 0.5px;
-  line-height: 16px;
-  font-weight: 500;
-}
-
-// LINK TO FULL PROFILE
-
-// Full profile: */
-.full-profile {
-  font-family: Metric-Regular;
-  font-size: 16px;
-  color: #333333;
-  line-height: 22px;
-};
-// arrow: */
-//border: 3px solid #9B164F;
-
-.full_profile:hover {
-  // Rectangle 7:hover: */
-  background: #9b164f;
-  width: 116px;
-  height: 28px;
-  // Full profile: */
-  font-family: Metric-Regular;
-  font-size: 16px;
-  color: #ebebeb;
-  line-height: 22px;
-  // arrow: */
-  border: 3px solid #ebebeb;
-}
 
 .story-promo {
   text-decoration: none;
@@ -294,43 +224,6 @@ main {
     }
   }
 }
-
-.winner .story-promo {
-  text-decoration: none;
-  color: #ffffff;
-  line-height: 1.4em;
-  float: right;
-
-  & > .link {
-    display: block;
-    background-color: #9b164f;
-    text-align: left;
-    margin-right: 12px;
-    margin-top: 10px;
-    font-size: 1rem;
-    width: 114px;
-    font-weight: 500;
-    padding-left: 16px;
-    height: 28px;
-    line-height: 26px;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    &:after {
-      content: " ";
-      background: url('https://image.webservices.ft.com/v1/images/raw/fticon:arrow-right?height=44&tint=ffffff,ffffff&source=ig_wrr') no-repeat center center;
-      background-size: 20px 20px;
-      position: absolute;
-      bottom: -4px;
-      right: 14px;
-      width: 20px;
-      height: 20px;
-      margin: 0 7px 8px 0;
-    }
-  }
-}
-
 
 // share links
 $twitter-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMTMgLTEwMyA0MCA0MCI+PHBhdGggZmlsbD0iI2E3YTU5YiIgZD0iTS04MS44NjItODkuNzg2Yy0uODIuMzU3LTEuNy42LTIuNjI0LjcwOC45NDMtLjU1NiAxLjY2OC0xLjQzNiAyLjAxLTIuNDgzLS44ODMuNTEtMS44NjIuODgtMi45MDIgMS4wOC0uODMzLS44Ny0yLjAyLTEuNDItMy4zMzctMS40Mi0yLjUyMyAwLTQuNTcgMi4wMS00LjU3IDQuNDkgMCAuMzUuMDQuNjkuMTE4IDEuMDItMy44LS4xOS03LjE2Ny0xLjk3OC05LjQyLTQuNjktLjM5NC42Ni0uNjIgMS40My0uNjIgMi4yNiAwIDEuNTUuODA3IDIuOTMgMi4wMzMgMy43My0uNzUtLjAyNS0xLjQ1NC0uMjI4LTIuMDctLjU2di4wNTRjMCAyLjE3NiAxLjU3MyAzLjk5IDMuNjY3IDQuNC0uMzg0LjEwNC0uNzkuMTYtMS4yMDQuMTYtLjMgMC0uNTgtLjAyNy0uODYtLjA4LjU4IDEuNzgyIDIuMjcgMy4wOCA0LjI3IDMuMTE2LTEuNTcgMS4yMDUtMy41NCAxLjkyMy01LjY4IDEuOTIzLS4zNyAwLS43NC0uMDI2LTEuMDktLjA2NyAyLjAyIDEuMjcyIDQuNDIgMi4wMTUgNyAyLjAxNSA4LjQgMCAxMy02Ljg0IDEzLTEyLjc3IDAtLjE5NC0uMDA3LS4zOS0uMDE4LS41OC44OS0uNjMzIDEuNjY1LTEuNDI1IDIuMjgtMi4zMjV6Ii8+PC9zdmc+';
@@ -425,16 +318,15 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
 }
 
 @include oGridRespondTo(S) {
-  .img-holder,
-  .winner .card__body {
-  }
-
-  .card {
-    padding-right: 50px;
-  }
   .intro {
     font-size: 1.2em;
     line-height: 1.4em;
+  }
+  .shortstate {
+    display: none;
+  }
+  .longstate {
+    display: block;
   }
 }
 
@@ -448,44 +340,20 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
       font-size: 1.3em;
       line-height: 1.4em;
     }
-  .img-holder,
-  .winner .card__body {
-  }
-
-  .img-holder img {
-    width: 85px;
-    height: 85px;
-  }
-
-  .job {
-    font-size: 18px;
-    line-height: 22px;
-  }
-  .name {
-    font-size: 22px;
-    line-height: 22px;
-  }
-
-  .standfirst {
-    font-size: 21px;
-    line-height: 28px;
-  }
-
-  .winner .name {
-    font-size: 1.5em;
-  }
-
-  .group-heading {
-    font-size: 1.25em;
-
-    &:after {
-      display: block;
-      width: 80px;
-    }
-  }
   .card {
-    padding-top: 2.1em;
-    padding-bottom: 2.1em;
+    padding: 10px 0;
+  }
+  .blurb {
+    display: block;
+    color: oColorsGetPaletteColor('pink-tint5');
+    font-size: 14px;
+  }
+  .date-heading {
+    font-size: 14px;
+  }
+  .delegates__dem,
+  .delegates__rep {
+    font-size: 24px;
   }
 }
 
@@ -498,23 +366,8 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
     font-size: 1.4em;
     line-height: 1.5em;
   }
-  .img-holder,
-  .winner .card__body {
-  }
-  .card {
-    padding-right: 100px;
-    padding-left: 100px;
-  }
-
-  .img-holder img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .winner .name {
-    font-size: 2em;
-  }
 }
+
 
 // fix for position of profile arrow in link on webkit browsers
 
