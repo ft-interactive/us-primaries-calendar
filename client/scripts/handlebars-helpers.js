@@ -1,5 +1,5 @@
 var Handlebars = require('hbsfy/runtime');
-var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 Handlebars.registerHelper('join', function (array, separator) {
   return array.join(separator);
@@ -10,26 +10,37 @@ Handlebars.registerHelper('upperCase', function (content) {
 });
 
 Handlebars.registerHelper('formatdateclass', function (date) {
+  var newDate = new Date(date);
 
-    var newDate = date.split('/');
-    var d = parseInt(newDate[0], 10),
-        m = parseInt(newDate[1] - 1, 10)
+  if (isNaN(Number(newDate))) {
+    newDate = null;
+  }
 
-    var month = monthNames[m],
-        day = d;
+  var html = '';
 
-  return month + day;
+  if (newDate !== null) {
+    html = months[newDate.getMonth()];
+    html += String(newDate.getDate());
+  }
+
+  return new Handlebars.SafeString(html);
 });
 
 Handlebars.registerHelper('formatdatedisplay', function (date) {
-    var newDate = date.split('/');
-    var d = parseInt(newDate[0], 10),
-        m = parseInt(newDate[1] - 1, 10)
+  var newDate = new Date(date);
 
-    var month = monthNames[m],
-        day = d;
+  if (isNaN(Number(newDate))) {
+    newDate = null;
+  }
 
-  return month + ' ' + day;
+  var html = '';
+
+  if (newDate !== null) {
+    html = months[newDate.getMonth()];
+    html += ' ' + newDate.getDate();
+  }
+
+  return new Handlebars.SafeString(html);
 });
 
 Handlebars.registerHelper('href', function (text) {

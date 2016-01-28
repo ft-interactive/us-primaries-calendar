@@ -79,7 +79,8 @@ main {
   color: #2e6e9e;
 }
 
-.dates {
+.dates,
+.labels {
   @include oGridColspan((default: 12, M: 10, L: 8));
   @include oGridCenter;
 }
@@ -89,18 +90,35 @@ main {
 }
 
 .stateinfo {
-  @include oGridColspan((default: 5, S: 7, M: 8, L: 8));
+  @include oGridColspan((default: 4, S: 5, M: 6));
+}
+
+.labels__holder {
+  margin-left: 20px;
+  margin-bottom: 4px;
+}
+
+.labels__rep,
+.labels__dem {
+  font-size: 12px;
+  text-align: center;
+  min-width: 50px;
 }
 
 .delegates__dem,
 .delegates__rep {
-  @include oGridColspan((default: 2, S: 1, M: 1, L: 1));
+  @include oGridColspan((default: 2));
   font-size: 20px;
   font-weight: 200;
+  text-align: right;
+}
+
+.delegates__rep--holder,
+.delegates__dem--holder {
+  text-align: center;
 }
 
 .date-group {
-  max-width: 800px;
   margin: 0 auto;
   padding-top: 10px;
   border-radius: 0 0 4px 4px;
@@ -121,7 +139,7 @@ main {
   overflow: hidden;
   box-sizing: border-box;
   border-bottom: 1px solid #e9decf;
-  margin-left: 40px;
+  margin-left: 20px;
   padding: 5px 0;
 }
 
@@ -342,6 +360,7 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
     }
   .card {
     padding: 10px 0;
+    margin-left: 40px;
   }
   .blurb {
     display: block;
@@ -349,6 +368,10 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
     font-size: 14px;
   }
   .date-heading {
+    font-size: 14px;
+  }
+  .labels__rep,
+  .labels__dem {
     font-size: 14px;
   }
   .delegates__dem,

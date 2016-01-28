@@ -17,16 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
   var dateNames = [];
   var dates = [];
   var dataset = spreadsheet.data;
-  var dateTitles = spreadsheet.dates;
+  // var dateTitles = spreadsheet.dates;
   var credits = spreadsheet.credits;
 
-  // put the dataset into dates and add the corresponding indicators
-  dateTitles.forEach(function (row) {
-    dateNames.push(row.name);
-    dates.push({
-      date: row.name,
-      state: []
-    });
+  dataset.forEach(function (row) {
+    if (dateNames.indexOf(row.date) === -1) {
+      dateNames.push(row.date);
+      dates.push({
+        date: row.date,
+        state: []
+      });
+    }
   });
 
   dataset.forEach(function (row) {
@@ -34,18 +35,24 @@ document.addEventListener('DOMContentLoaded', () => {
     dates[dateIndex].state.push(row);
   });
 
-  console.log(dates);
+  dates.forEach(function (date) {
+    date.state.sort(function (a, b) {
+      if (a.longstate > b.longstate) return 1;
+      if (a.longstate < b.longstate) return -1;
+      return 0;
+    });
+  });
 
   document.querySelector('main').innerHTML = mainTemplate(spreadsheet);
 
-  var peopleHTML = dateTemplate(dates, {
+  var datesHTML = dateTemplate(dates, {
     partials: {
       state_item,
       date_group
     }
   });
 
-  document.querySelector('.content').innerHTML = peopleHTML;
+  document.querySelector('.content').innerHTML = datesHTML;
 
   // add headers to each date based on date sheets
   // dateTitles.forEach(function (row, indx) {

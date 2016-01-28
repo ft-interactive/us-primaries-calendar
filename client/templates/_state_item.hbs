@@ -10,8 +10,12 @@
         <h3 class="card__title shortstate">{{shortstate}}</h3>
         <span class="blurb">{{additionalinfo}}</span>
       </div>
-			<div class="delegates__rep">{{repdelegates}}</div>
-      <div class="delegates__dem">{{demdelegates}}</div>
+			<div class="delegates__rep">
+        <div class="delegates__rep--holder">{{repdelegates}}</div>
+      </div>
+      <div class="delegates__dem">
+        <div class="delegates__dem--holder">{{demdelegates}}</div>
+      </div>
 	</div>
 	{{#if linkurl}}<a class="story-promo" href="{{linkurl}}"><span class="link">Full profile</span></a>{{/if}}
 </div>
