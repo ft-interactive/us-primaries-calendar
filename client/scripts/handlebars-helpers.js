@@ -28,7 +28,7 @@ Handlebars.registerHelper('formatdateclass', function (date) {
 
 Handlebars.registerHelper('formatdatedisplay', function (date) {
   var newDate = new Date(date);
-  newDate.setHours(newDate.getHours() + 8);
+  newDate.setHours(newDate.getHours() + 10);
   console.log(newDate);
   if (isNaN(Number(newDate))) {
     newDate = null;
