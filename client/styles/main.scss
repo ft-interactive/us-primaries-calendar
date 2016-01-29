@@ -134,6 +134,9 @@ main {
   border-top: 1px solid oColorsGetPaletteColor('pink-tint4');
 }
 
+.date-group .card:last-child {
+  border-bottom: none;
+}
 
 .date-heading {
   width: 50px;
@@ -324,7 +327,7 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
   margin-top: 2rem;
   border-top: 1px solid oColorsGetPaletteColor('pink-tint3');
   padding-top: 8px;
-  max-width: 800px;
+  // max-width: 800px;
 
   div {
     margin-bottom: 4px;
