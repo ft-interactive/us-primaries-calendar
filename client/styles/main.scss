@@ -54,15 +54,24 @@ main {
   font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
   font-size: 2.5em;
   color: #333333;
-  line-height: 54px;
+  line-height: 1.2em;
   text-align: center;
   position: relative;
   font-weight: normal;
-  margin: 6px 0;
+  margin: 6px 0 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.logo {
+  width: 32px;
+  top: 4px;
+  margin-right: 10px;
+  display: inline-block;
+  position: relative;
+  > img {
+    width: 100%;
+  }
+}
 .intro {
   max-width: 720px;
   margin: 0 auto;
@@ -135,7 +144,7 @@ main {
 }
 
 .date-group .card:last-child {
-  border-bottom: none;
+  border-bottom: 0;
 }
 
 .date-heading {
@@ -348,10 +357,19 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
   }
 }
 
+.o-footer__copyright {
+  margin-bottom: 0;
+}
+
 @include oGridRespondTo(S) {
   .intro {
     font-size: 1.2em;
     line-height: 1.4em;
+  }
+  .logo {
+    width: 37px;
+    top: 6px;
+    margin-right: 14px;
   }
   .shortstate {
     display: none;
@@ -366,6 +384,10 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
   .headline {
     font-size: 3em;
     margin: 0.3em 0;
+  }
+  .logo {
+    width: 45px;
+    top: 8px;
   }
   .intro {
       font-size: 1.3em;
@@ -398,6 +420,11 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
     font-size: 4em;
     margin: 0.5em 0;
   }
+  .logo {
+    width: 50px;
+    top: 5px;
+    margin-right: 20px;
+  }
   .intro {
     font-size: 1.4em;
     line-height: 1.5em;
@@ -405,16 +432,16 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
 }
 
 
-// fix for position of profile arrow in link on webkit browsers
+// // fix for position of profile arrow in link on webkit browsers
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {  
-  .story-promo {
+// @media screen and (-webkit-min-device-pixel-ratio:0) {  
+//   .story-promo {
 
-    & > .link {
+//     & > .link {
 
-      &:after {
-        bottom: -38px;
-      }
-    }
-  }  
-}
+//       &:after {
+//         bottom: -38px;
+//       }
+//     }
+//   }  
+// }

@@ -10,7 +10,7 @@
         <span class="blurb">{{additionalinfo}}</span>
       </div>
 			<div class="delegates__rep">
-        <div class="delegates__rep--holder">{{repdelegates}}</div>
+        <div class="delegates__rep--holder">{{#unless repdelegates}}&nbsp;{{/unless}}{{repdelegates}}</div>
       </div>
       <div class="delegates__dem">
         <div class="delegates__dem--holder">{{demdelegates}}</div>
@@ -29,7 +29,7 @@
           <span class="blurb">{{additionalinfo}}</span>
         </div>
         <div class="delegates__rep">
-          <div class="delegates__rep--holder">{{repdelegates}}</div>
+          <div class="delegates__rep--holder">{{#unless repdelegates}}&nbsp;{{/unless}}{{repdelegates}}</div>
         </div>
         <div class="delegates__dem">
           <div class="delegates__dem--holder">{{demdelegates}}</div>
