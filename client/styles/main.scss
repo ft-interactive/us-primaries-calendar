@@ -3,6 +3,7 @@ $o-grid-is-silent:  false;
 @import 'o-colors/main';
 @import 'o-footer/main';
 @import 'o-grid/main';
+@import 'o-hoverable/main';
 
 @import 'fonts';
 
@@ -83,6 +84,13 @@ main {
 .labels {
   @include oGridColspan((default: 12, M: 10, L: 8));
   @include oGridCenter;
+}
+
+.dates a {
+  text-decoration: none;
+  &:hover h3 {
+    text-decoration: underline;
+  }
 }
 
 .map {

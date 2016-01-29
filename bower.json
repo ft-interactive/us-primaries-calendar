@@ -9,6 +9,7 @@
     "o-footer": "~4.0.0"
   },
   "devDependencies": {
-    "o-grid": "~4.0.5"
+    "o-grid": "~4.0.5",
+    "o-hoverable": "~3.0.0"
   }
 }

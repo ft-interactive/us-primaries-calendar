@@ -1,7 +1,6 @@
-<div class="card o-grid-row">
-	{{#if picurl}}<div class="map-holder"><img src="https://ig.ft.com/static/profiles/meet-the-fed/images/content/{{picurl}}" class="card__img" /></div>	{{/if}}
-	<div class="card__body">
-      {{!-- {{#if year}}<p class="year">{{year}}</p>{{/if}} --}}
+{{#if linkurl}}
+  <a href="{{linkurl}}">
+    <div class="card o-grid-row">
       <div class="map">
         <img src="images/{{mapurl}}" alt=""/>
       </div>
@@ -16,6 +15,25 @@
       <div class="delegates__dem">
         <div class="delegates__dem--holder">{{demdelegates}}</div>
       </div>
-	</div>
-	{{#if linkurl}}<a class="story-promo" href="{{linkurl}}"><span class="link">Full profile</span></a>{{/if}}
-</div>
+  	</div>
+  </a>
+{{/if}}
+{{#unless linkurl}}
+  <div class="card o-grid-row"><div class="card__body">
+        <div class="map">
+          <img src="images/{{mapurl}}" alt=""/>
+        </div>
+        <div class="stateinfo">
+          <h3 class="card__title longstate">{{longstate}}</h3>
+          <h3 class="card__title shortstate">{{shortstate}}</h3>
+          <span class="blurb">{{additionalinfo}}</span>
+        </div>
+        <div class="delegates__rep">
+          <div class="delegates__rep--holder">{{repdelegates}}</div>
+        </div>
+        <div class="delegates__dem">
+          <div class="delegates__dem--holder">{{demdelegates}}</div>
+        </div>
+     </div>
+  </div>
+{{/unless}}
