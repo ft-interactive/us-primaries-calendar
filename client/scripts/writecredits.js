@@ -44,9 +44,9 @@ function writeCredits(creditsData) {
 
     source.forEach(function (row, indx) {
       if (sourceLength > 1) {
-        sourceHtml += source[indx].name + '; ';
+        sourceHtml += '<a href="' + source[indx].link + '">' + source[indx].name + '</a>; ';
       } else {
-        sourceHtml += source[indx].name;
+        sourceHtml += '<a href="' + source[indx].link + '">' + source[indx].name + '</a> ';
       }
     });
 

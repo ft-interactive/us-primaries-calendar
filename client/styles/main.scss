@@ -66,11 +66,12 @@ main {
 .intro {
   max-width: 720px;
   margin: 0 auto;
-  margin-bottom: 2.2em;
+  margin-bottom: 1em;
   font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
   font-size: 16px;
   color: #505050;
   line-height: 22px;
+  text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -270,12 +271,13 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
 }
 
 .share-links-holder {
-  max-width: 800px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
 .share-links {  
   // margin-left: 10px;
+  text-align: center;
   > p { 
     @include visually-hidden;
   }
