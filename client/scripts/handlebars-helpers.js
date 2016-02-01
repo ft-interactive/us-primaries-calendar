@@ -39,7 +39,7 @@ Handlebars.registerHelper('formatdatedisplay', function (date) {
     html = months[newDate.getUTCMonth()];
     html += ' ' + newDate.getUTCDate();
   }
-  console.log(newDate.getUTCDate())
+  // console.log(newDate.getUTCDate())
   return new Handlebars.SafeString(html);
 });
 

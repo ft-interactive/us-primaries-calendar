@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
       state: []
     });
   });
-  
 
   dataset.forEach(function (row) {
     var dateIndex = dateNames.indexOf(row.date);
