@@ -102,7 +102,12 @@ main {
     text-decoration: underline;
   }
 }
-
+.date-label {
+  font-size: 12px;
+  position: relative;
+  top: -14px;
+  color: oColorsGetPaletteColor('pink-tint5');
+}
 .map {
   @include oGridColspan((default: 3, S: 2, M: 2, L: 2));
 }
@@ -396,6 +401,10 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
   .card {
     padding: 10px 0;
     margin-left: 40px;
+  }
+  .date-label {
+    padding-left: 8px;
+    font-size: 14px;
   }
   .blurb {
     display: block;

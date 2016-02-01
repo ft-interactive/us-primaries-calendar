@@ -17,18 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
   var dateNames = [];
   var dates = [];
   var dataset = spreadsheet.data;
-  // var dateTitles = spreadsheet.dates;
+  var dateTitles = spreadsheet.dates;
   var credits = spreadsheet.credits;
 
-  dataset.forEach(function (row) {
-    if (dateNames.indexOf(row.date) === -1) {
-      dateNames.push(row.date);
-      dates.push({
-        date: row.date,
-        state: []
-      });
-    }
+ // put the dataset into groups and add the corresponding indicators
+  dateTitles.forEach(function (row) {
+    dateNames.push(row.date);
+    dates.push({
+      date: row.date,
+      annotation: row.annotation,
+      state: []
+    });
   });
+  
 
   dataset.forEach(function (row) {
     var dateIndex = dateNames.indexOf(row.date);
