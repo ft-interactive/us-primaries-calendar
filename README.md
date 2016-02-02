@@ -1,5 +1,6 @@
 # profiles
-Simple, responsive profiles, as seen on [Meet the FOMC](http://ig.ft.com/sites/profiles/fomc/).
+
+Simple responsive listing page, based on the [Meet the FOMC profiles](http://ig.ft.com/sites/profiles/fomc/) project.
 
 ## Uses Starter Kit
 
