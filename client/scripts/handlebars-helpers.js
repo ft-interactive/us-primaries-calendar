@@ -19,8 +19,8 @@ Handlebars.registerHelper('formatdateclass', function (date) {
   var html = '';
 
   if (newDate !== null) {
-    html = months[newDate.getMonth()];
-    html += String(newDate.getDate());
+    html = months[newDate.getUTCMonth()];
+    html += newDate.getUTCDate();
   }
 
   return new Handlebars.SafeString(html);
@@ -28,8 +28,7 @@ Handlebars.registerHelper('formatdateclass', function (date) {
 
 Handlebars.registerHelper('formatdatedisplay', function (date) {
   var newDate = new Date(date);
-  newDate.setHours(newDate.getHours() + 10);
-  console.log(newDate);
+
   if (isNaN(Number(newDate))) {
     newDate = null;
   }
@@ -37,10 +36,10 @@ Handlebars.registerHelper('formatdatedisplay', function (date) {
   var html = '';
 
   if (newDate !== null) {
-    html = months[newDate.getMonth()];
-    html += ' ' + newDate.getDate();
+    html = months[newDate.getUTCMonth()];
+    html += ' ' + newDate.getUTCDate();
   }
-
+  // console.log(newDate.getUTCDate())
   return new Handlebars.SafeString(html);
 });
 

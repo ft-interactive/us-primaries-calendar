@@ -2,6 +2,7 @@ import oHoverable from 'o-hoverable';
 import attachFastClick from 'fastclick';
 import mainTemplate from '../templates/main.hbs';
 import dateTemplate from '../templates/dates.hbs';
+import partyTemplate from '../templates/party.hbs';
 import state_item from '../templates/_state_item.hbs';
 import date_group from '../templates/_date_group.hbs';
 import hb_helper from'./handlebars-helpers.js';
@@ -17,17 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
   var dateNames = [];
   var dates = [];
   var dataset = spreadsheet.data;
-  // var dateTitles = spreadsheet.dates;
+  var dateTitles = spreadsheet.dates;
   var credits = spreadsheet.credits;
 
-  dataset.forEach(function (row) {
-    if (dateNames.indexOf(row.date) === -1) {
-      dateNames.push(row.date);
-      dates.push({
-        date: row.date,
-        state: []
-      });
-    }
+ // put the dataset into groups and add the corresponding indicators
+  dateTitles.forEach(function (row) {
+    dateNames.push(row.date);
+    dates.push({
+      date: row.date,
+      annotation: row.annotation,
+      state: []
+    });
   });
 
   dataset.forEach(function (row) {
