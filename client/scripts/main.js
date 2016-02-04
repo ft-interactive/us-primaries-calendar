@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('.content').innerHTML = datesHTML;
 
-
   // add headers to each date based on date sheets
   // dateTitles.forEach(function (row, indx) {
   //   document.querySelector('.' + dateTitles[indx].name + ' .date-heading').innerHTML = dateTitles[indx].value;
