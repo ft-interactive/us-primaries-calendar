@@ -89,6 +89,30 @@ main {
   text-decoration: none;
   color: #2e6e9e;
 }
+.video-player {
+  @include oGridCenter;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 .video-player {
   float: none;
@@ -115,7 +139,7 @@ main {
 
 .dates,
 .labels {
-  @include oGridColspan((default: 12, M: 10, L: 8));
+  @include oGridColspan((default: 12, M: 10, L: 8, XL: 7));
   @include oGridCenter;
 }
 
@@ -171,9 +195,6 @@ main {
   border-top: 1px solid oColorsGetPaletteColor('pink-tint4');
 }
 
-.date-group .card:last-child {
-  border-bottom: 0;
-}
 
 .date-heading {
   width: 50px;
@@ -190,6 +211,10 @@ main {
   border-bottom: 1px solid #e9decf;
   margin-left: 20px;
   padding: 5px 0;
+}
+
+.date-group > a:last-child .card {
+  border-bottom: 0;
 }
 
 .card__body {
