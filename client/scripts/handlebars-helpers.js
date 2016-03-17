@@ -1,5 +1,6 @@
 var Handlebars = require('hbsfy/runtime');
 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+var monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 Handlebars.registerHelper('join', function (array, separator) {
   return array.join(separator);
@@ -38,6 +39,24 @@ Handlebars.registerHelper('formatdatedisplay', function (date) {
   if (newDate !== null) {
     html = months[newDate.getUTCMonth()];
     html += ' ' + newDate.getUTCDate();
+  }
+  // console.log(newDate.getUTCDate())
+  return new Handlebars.SafeString(html);
+});
+
+Handlebars.registerHelper('formatdateupdate', function (date) {
+  var newDate = new Date(date);
+
+  if (isNaN(Number(newDate))) {
+    newDate = null;
+  }
+
+  var html = '';
+
+  if (newDate !== null) {
+    html = monthsFull[newDate.getUTCMonth()];
+    html += ' ' + newDate.getUTCDate();
+    html += ', ' + newDate.getUTCFullYear();
   }
   // console.log(newDate.getUTCDate())
   return new Handlebars.SafeString(html);
