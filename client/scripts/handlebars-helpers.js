@@ -44,24 +44,6 @@ Handlebars.registerHelper('formatdatedisplay', function (date) {
   return new Handlebars.SafeString(html);
 });
 
-Handlebars.registerHelper('formatdateupdate', function (date) {
-  var newDate = new Date(date);
-
-  if (isNaN(Number(newDate))) {
-    newDate = null;
-  }
-
-  var html = '';
-
-  if (newDate !== null) {
-    html = monthsFull[newDate.getUTCMonth()];
-    html += ' ' + newDate.getUTCDate();
-    html += ', ' + newDate.getUTCFullYear();
-  }
-  // console.log(newDate.getUTCDate())
-  return new Handlebars.SafeString(html);
-});
-
 Handlebars.registerHelper('href', function (text) {
   if (!text) {
     return '';
